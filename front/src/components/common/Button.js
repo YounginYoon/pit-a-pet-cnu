@@ -3,9 +3,10 @@ import React from 'react';
 import styled,{css} from 'styled-components';
 // palette import
 import palette from '../../lib/styles/palette';
+import { Link } from 'react-router-dom';
 
 // button styling
-const StyledButton = styled.button`
+const buttonStyle = css`
   border: none;
   border-radius: 4px;
   font-size: 1rem;
@@ -42,8 +43,20 @@ const StyledButton = styled.button`
     
 `;
 // Button 에 받아오는 props 를 모두 styledButton 에 전달한다는 의미
-const Button = (props) => {
-  return <StyledButton {...props} />;
+const StyledButton = styled.button`
+  ${buttonStyle}
+`;
+
+const StyledLink = styled(Link)`
+  ${buttonStyle}
+`;
+
+const Button = props => {
+  return props.to ? (
+    <StyledLink {...props} cyan={props.cyan ? 1 : 0} />
+  ) : (
+    <StyledButton {...props} />
+  );
 };
 
 export default Button;

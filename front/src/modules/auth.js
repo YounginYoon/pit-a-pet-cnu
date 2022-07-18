@@ -95,6 +95,13 @@ const auth = handleActions(
             auth,
         }),
 
+        //로그인 성공
+        [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
+            ...state,
+            authError: null,
+            auth
+          }),
+
         //로그인 실패
         [LOGIN_FAILURE]: (state, {payload: error}) => ({
             ...state,
