@@ -4,7 +4,8 @@ import Header from './components/common/Header';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import PostList from './pages/PostList';
-import Write from './pages/Write'
+import Post from './pages/Post';
+import Write from './pages/Write';
 
 const App = () => {
 	return (
@@ -18,6 +19,7 @@ const App = () => {
 					{/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
 					<Route path="/@:username">
 						<Route index element={<PostList />} />
+						<Route path=":postId" element={<Post />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
